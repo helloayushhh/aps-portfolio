@@ -413,6 +413,25 @@
   <div class="modal-box glass" id="modalBox"></div>
 </div>
 
+<audio id="bgMusic" loop>
+  <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
+
+  <!-- Headphones (Music Off) -->
+  <svg id="musicIconPlay" viewBox="0 0 24 24">
+    <path d="M12 3a8 8 0 0 0-8 8v4a3 3 0 0 0 3 3h1v-7H6v-1a6 6 0 0 1 12 0v1h-2v7h1a3 3 0 0 0 3-3v-4a8 8 0 0 0-8-8z"/>
+  </svg>
+
+  <!-- Headphones (Music On) -->
+  <svg id="musicIconPause" viewBox="0 0 24 24" style="display:none;">
+    <path d="M12 3a8 8 0 0 0-8 8v4a3 3 0 0 0 3 3h1v-7H6v-1a6 6 0 0 1 12 0v1h-2v7h1a3 3 0 0 0 3-3v-4a8 8 0 0 0-8-8z"/>
+    <path d="M10 9h1.5v6H10zm2.5 0H14v6h-1.5z"/>
+  </svg>
+
+</button>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
 </body>
