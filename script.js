@@ -234,6 +234,29 @@ setTimeout(typeCode, 1300);
   else { applyPos(defaultPos); }
 })();
 
+/* ===================== BACKGROUND MUSIC ===================== */
+(function(){
+  const audio = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicToggle');
+  const iconPlay = document.getElementById('musicIconPlay');
+  const iconPause = document.getElementById('musicIconPause');
+  if(!audio || !btn) return;
+
+  audio.volume = 0.35;
+
+  btn.addEventListener('click', () => {
+    if(audio.paused){
+      audio.play();
+      iconPlay.style.display = 'none';
+      iconPause.style.display = 'block';
+    } else {
+      audio.pause();
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+    }
+  });
+})();
+
 /* ===================== STACK GRID ===================== */
 const stackGrid = document.getElementById("stackGrid");
 const stack = [
