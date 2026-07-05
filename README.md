@@ -1,6 +1,8 @@
-# Ayush Pandey — Portfolio
+My Portfolio
 
-My personal portfolio. Built from scratch with plain HTML, CSS, and JavaScript — no frameworks, no build tools.
+Built with HTML, CSS, and JavaScript.
+
+A small corner of the internet where I share my work, experiments, and the journey of becoming a better software engineer.
 
 ## What's in here
 - `index.html` — structure and content
@@ -16,3 +18,5 @@ Open `index.html` with a local server (like VS Code's Live Server extension) rat
 
 ## Contact
 ayushpandeysurya@gmail.com
+
+Thanks for visiting.
