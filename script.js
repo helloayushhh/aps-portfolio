@@ -5,9 +5,9 @@ const projects = [
     desc:"Offline-capable UPI payment backend with concurrent transaction handling and end-to-end encryption.",
     tech:["Java 17","Spring Boot","AES-256-GCM","RSA-OAEP","JUnit 5"],
     problem:"UPI payments typically assume constant connectivity, leaving a gap for offline-first, secure transaction flows.",
-    solution:"Built a Spring Boot backend that queues and reconciles transactions with strong encryption and duplicate-payment prevention baked into the concurrency model.",
-    challenges:"Guaranteeing exactly-once processing under concurrent writes without a central lock bottleneck.",
-    impact:"Delivered a fully tested reference architecture for secure, resilient offline payments.",
+    solution:"Building a Spring Boot backend that queues and reconciles transactions with strong encryption and duplicate-payment prevention baked into the concurrency model.",
+    challenges:"Ensuring exactly-once processing under concurrent transactions.",
+    impact:"Reliable, secure offline payments without internet.",
     github:"https://github.com/helloayushhh/SwiftUPI"
   },
   {
