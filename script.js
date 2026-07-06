@@ -265,12 +265,33 @@ setTimeout(typeCode, 1300);
 /* ===================== STACK GRID ===================== */
 const stackGrid = document.getElementById("stackGrid");
 const stack = [
-  ["java","Java"],["python","python","Python"],["javascript","JavaScript"],["springboot","Spring Boot"],
-  ["react","React"],["html5","HTML5"],["css3","CSS3"],["mysql","MySQL"],["git","Git"],["github/ffffff","GitHub"],
-  ["fastapi","REST APIs"],["openai","OpenAI API"],["firebase","Firebase"],["bootstrap","Bootstrap"],
-  ["figma","Figma"],["docker","Docker"],["amazonaws","AWS"],["jest","JUnit / Testing"]
-];
+  // Languages
+  ["java","Java"],
+  ["python","Python"],
+  ["javascript","JavaScript"],
 
+  // Backend
+  ["springboot","Spring Boot"],
+  ["fastapi","API Development"],
+  ["mysql","MySQL"],
+  ["firebase","Firebase"],
+
+  // Frontend
+  ["react","React"],
+  ["html5","HTML5"],
+  ["css3","CSS3"],
+  ["bootstrap","Bootstrap"],
+
+  // AI & Cloud
+  ["openai","AI Integration"],
+  ["amazonaws","AWS"],
+
+  // Tools
+  ["git","Git"],
+  ["github/ffffff","GitHub"],
+  ["figma","Figma"],
+  ["jest","Testing (JUnit)"]
+];
 const iconOverrides = {
   "java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   "css3": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
