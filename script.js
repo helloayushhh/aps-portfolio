@@ -113,7 +113,7 @@ for(let i=0;i<28;i++){
 }
 
 /* ===================== HERO TYPING ===================== */
-const roles = ["Full-Stack Developer", "AI Enthusiast", "Problem Solver", "Open Source Learner"];
+const roles = ["Software Engineer", "Product Builder", "Data-Driven Thinker", "Problem Solver"];
 const roleEl = document.getElementById("roleType");
 let ri=0, ci=0, deleting=false;
 function typeRole(){
@@ -134,29 +134,34 @@ const codeStr =
 `<span class="c">// about.js</span>
 <span class="k">const</span> <span class="n">engineer</span> = {
   name: <span class="s">"Ayush Pandey"</span>,
-  role: <span class="s">"Software Developer"</span>,
-  focus: [<span class="s">"Distributed Systems"</span>, <span class="s">"AI Integration"</span>, <span class="s">"Full-Stack"</span>],
+  role: <span class="s">"Software Engineer"</span>,
+  identity: <span class="s">"Product Builder"</span>,
+  focus: [<span class="s">"Software"</span>, <span class="s">"Data"</span>, <span class="s">"Product"</span>],
   stack: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"React"</span>],
-  status: <span class="s">"building intelligent software"</span>
+  status: <span class="s">"building products that people love to use"</span>
 };
 
 <span class="k">export default</span> <span class="n">engineer</span>;`;
 
 const typedEl = document.getElementById("typed-code");
-function typeCode(){
+
+function typeCode() {
   let i = 0;
   const speed = 8;
-  function step(){
-    if(i <= codeStr.length){
-      typedEl.innerHTML = codeStr.slice(0,i) + '<span class="blink-cursor"></span>';
+
+  function step() {
+    if (i <= codeStr.length) {
+      typedEl.innerHTML = codeStr.slice(0, i) + '<span class="blink-cursor"></span>';
       i += 3;
       setTimeout(step, speed);
     } else {
       typedEl.innerHTML = codeStr + '<span class="blink-cursor"></span>';
     }
   }
+
   step();
 }
+
 setTimeout(typeCode, 1300);
 
 /* ===================== DRAGGABLE STATUS CARD ===================== */
