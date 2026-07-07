@@ -2,16 +2,18 @@
 const projects = [
   {
     tag:"Security · Backend", title:"SwiftUPI", icon:"₹",
+    category:["software"],
     desc:"Offline-capable UPI payment backend with concurrent transaction handling and end-to-end encryption.",
     tech:["Java 17","Spring Boot","AES-256-GCM","RSA-OAEP","JUnit 5"],
     problem:"UPI payments typically assume constant connectivity, leaving a gap for offline-first, secure transaction flows.",
-    solution:"Building a Spring Boot backend that queues and reconciles transactions with strong encryption and duplicate-payment prevention baked into the concurrency model.",
-    challenges:"Ensuring exactly-once processing under concurrent transactions.",
-    impact:"Reliable, secure offline payments without internet.",
+    solution:"Built a Spring Boot backend that queues and reconciles transactions with strong encryption and duplicate-payment prevention baked into the concurrency model.",
+    challenges:"Guaranteeing exactly-once processing under concurrent writes without a central lock bottleneck.",
+    impact:"Delivered a fully tested reference architecture for secure, resilient offline payments.",
     github:"https://github.com/helloayushhh/SwiftUPI"
   },
   {
     tag:"AI · Desktop App", title:"Mira AI", icon:"🎙️",
+    category:["software"],
     desc:"Voice-activated desktop assistant that understands natural commands and responds in real time.",
     tech:["Python","PyQt5","OpenAI API","Multi-threading"],
     problem:"Existing desktop assistants felt clunky and required rigid command syntax.",
@@ -22,6 +24,7 @@ const projects = [
   },
   {
     tag:"AI · Full-Stack", title:"CulinaryAI", icon:"🍳",
+    category:["software","product"],
     desc:"AI-powered marketplace connecting home cooks and chefs with diners, built for a national hackathon.",
     tech:["React","Firebase","AI Recommendations"],
     problem:"Home chefs lacked an easy way to reach nearby customers looking for personalized meals.",
@@ -32,6 +35,7 @@ const projects = [
   },
   {
     tag:"Full-Stack", title:"GoGym", icon:"💪",
+    category:["software"],
     desc:"Single-page fitness and gym-management application built with React.",
     tech:["ReactJS","SPA Architecture"],
     problem:"Small gyms needed a lightweight way to manage members and track workouts without heavy software.",
@@ -42,6 +46,7 @@ const projects = [
   },
   {
     tag:"Systems · Desktop", title:"Inventory Management System", icon:"📦",
+    category:["software","analytics"],
     desc:"Role-based desktop inventory system with a relational database backend.",
     tech:["Java","MySQL","JDBC","RBAC","Swing"],
     problem:"Small businesses needed inventory control with proper access restrictions by role.",
@@ -292,6 +297,7 @@ const stack = [
   ["figma","Figma"],
   ["jest","Testing (JUnit)"]
 ];
+
 const iconOverrides = {
   "java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   "css3": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
@@ -339,19 +345,46 @@ projects.forEach((p, idx) => {
   dotsWrap.appendChild(dot);
 });
 
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+
+    cards.forEach((card, idx) => {
+      const project = projects[idx];
+      const matches = filter === 'all' || project.category.includes(filter);
+      card.style.display = matches ? '' : 'none';
+    });
+
+    // re-center carousel on first visible card after filtering
+    const firstVisible = cards.findIndex((card, idx) =>
+      filter === 'all' || projects[idx].category.includes(filter)
+    );
+    if(firstVisible !== -1){
+      scrollToCard(firstVisible);
+      requestAnimationFrame(updateActiveCard);
+    }
+  });
+});
+
 const cards = Array.from(track.querySelectorAll(".proj-card"));
 const dots = Array.from(dotsWrap.querySelectorAll("span"));
 
 function updateActiveCard(){
+  const visibleCards = cards.filter(card => card.style.display !== 'none');
   const center = track.scrollLeft + track.clientWidth/2;
-  let closest = 0, closestDist = Infinity;
-  cards.forEach((card, idx) => {
+  let closest = null, closestDist = Infinity;
+  visibleCards.forEach((card) => {
     const cardCenter = card.offsetLeft + card.offsetWidth/2;
     const dist = Math.abs(center - cardCenter);
-    if(dist < closestDist){ closestDist = dist; closest = idx; }
-    card.classList.toggle("active", dist < card.offsetWidth/2);
+    if(dist < closestDist){ closestDist = dist; closest = card; }
   });
-  dots.forEach((d,i) => d.classList.toggle("active", i===closest));
+  cards.forEach((card) => {
+    if(card.style.display === 'none'){ card.classList.remove('active'); return; }
+    card.classList.toggle("active", card === closest || visibleCards.length === 1);
+  });
 }
 track.addEventListener("scroll", () => window.requestAnimationFrame(updateActiveCard), {passive:true});
 window.addEventListener("resize", updateActiveCard);
@@ -392,6 +425,102 @@ function openModal(idx){
 function closeModal(){ overlay.classList.remove("open"); }
 overlay.addEventListener("click", e => { if(e.target === overlay) closeModal(); });
 document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
+
+
+/* ===================== CERTS ===================== */
+const certifications = [
+  {
+    name:"Product Fundamentals Micro-Certification",
+    issuer:"Product School",
+    category:["ai","professional"],
+    logo:"🎯",
+    link:"#"
+  },
+  {
+    name:"AWS Gen AI Foundations",
+    issuer:"AWS Academy",
+    category:["ai"],
+    logo:"☁️",
+    link:"#"
+  },
+  {
+    name:"Google Analytics Certification",
+    issuer:"Google",
+    category:["data"],
+    logo:"https://cdn.simpleicons.org/googleanalytics/ffffff",
+    link:"#"
+  },
+  {
+    name:"Gemini Certified Student",
+    issuer:"Google for Education",
+    category:["ai"],
+    logo:"https://cdn.simpleicons.org/googlegemini/ffffff",
+    link:"#"
+  },
+  {
+    name:"AI & Cybersecurity Awareness",
+    issuer:"TCS iON",
+    category:["ai","professional"],
+    logo:"https://cdn.simpleicons.org/tcs/ffffff",
+    link:"#"
+  },
+  {
+    name:"CodeSlayer Hackathon",
+    issuer:"NIT Delhi",
+    category:["development"],
+    logo:"🏆",
+    link:"assets/certificates/Hackathon - NIT.jpg"
+  },
+  {
+    name:"Career Transformation Program",
+    issuer:"IBM SkillsBuild",
+    category:["professional"],
+    logo:"💼",
+    link:"assets/certificates/Completion Certificate_SkillsBuild.pdf"
+  },
+  {
+    name:"Digital Applications Fundamentals",
+    issuer:"FutureSkills Prime & NASSCOM",
+    category:["development","professional"],
+    logo:"💻",
+    link:"assets/certificates/DAF certificate.pdf"
+  },
+  {
+    name:"Business Innovation Challenge — Winner",
+    issuer:"IEEE CSE, GCET",
+    category:["professional"],
+    logo:"🏆",
+    link:"assets/certificates/IEEE Winner.jpg"
+  }
+];
+
+const certGrid = document.getElementById("certGrid");
+function renderCerts(filter = "all"){
+  certGrid.innerHTML = "";
+  certifications
+    .filter(c => filter === "all" || c.category.includes(filter))
+    .forEach(c => {
+      const card = document.createElement("div");
+      card.className = "cert-card glass";
+      const isImg = c.logo.startsWith("http");
+      card.innerHTML = `
+        <div class="cert-logo">${isImg ? `<img src="${c.logo}" alt="${c.issuer}">` : c.logo}</div>
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-issuer">${c.issuer}</div>
+        <a href="${c.link}" target="_blank" class="cert-link">View ↗</a>
+      `;
+      certGrid.appendChild(card);
+    });
+}
+renderCerts();
+
+document.querySelectorAll('#certFilters .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#certFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCerts(btn.dataset.filter);
+  });
+});
 
 /* ===================== REVEAL ON SCROLL ===================== */
 const revealObserver = new IntersectionObserver((entries) => {
