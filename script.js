@@ -1,60 +1,71 @@
 /* ===================== DATA ===================== */
 const projects = [
   {
-    tag:"Security · Backend", title:"SwiftUPI", icon:"₹",
-    category:["software"],
-    desc:"Offline-capable UPI payment backend with concurrent transaction handling and end-to-end encryption.",
-    tech:["Java 17","Spring Boot","AES-256-GCM","RSA-OAEP","JUnit 5"],
-    problem:"UPI payments typically assume constant connectivity, leaving a gap for offline-first, secure transaction flows.",
-    solution:"Built a Spring Boot backend that queues and reconciles transactions with strong encryption and duplicate-payment prevention baked into the concurrency model.",
-    challenges:"Guaranteeing exactly-once processing under concurrent writes without a central lock bottleneck.",
-    impact:"Delivered a fully tested reference architecture for secure, resilient offline payments.",
-    github:"https://github.com/helloayushhh/SwiftUPI"
-  },
+  tag:"Backend · Security",
+  title:"SwiftUPI",
+  icon:"₹",
+  category:["software"],
+  desc:"Offline UPI payment backend that securely routes transactions through a Bluetooth-style mesh network using hybrid encryption and exactly-once settlement.",
+  tech:["Java 17","Spring Boot","AES-256-GCM","RSA-OAEP","JUnit 5"],
+  problem:"Digital payments fail without internet connectivity, making secure offline transactions unreliable in low or no-network environments.",
+  solution:"Built a Spring Boot backend that encrypts, validates, deduplicates, and settles offline UPI transactions relayed through a simulated Bluetooth mesh network.",
+  challenges:"Implementing hybrid cryptography, preventing duplicate settlements under concurrent requests, and ensuring secure end-to-end transaction processing.",
+  impact:"Built a production-inspired backend demonstrating offline payment routing, distributed systems concepts, and secure transaction processing.",
+  github:"https://github.com/helloayushhh/SwiftUPI"
+},
   {
-    tag:"AI · Desktop App", title:"Mira AI", icon:"🎙️",
-    category:["software"],
-    desc:"Voice-activated desktop assistant that understands natural commands and responds in real time.",
-    tech:["Python","PyQt5","OpenAI API","Multi-threading"],
-    problem:"Existing desktop assistants felt clunky and required rigid command syntax.",
-    solution:"Combined a PyQt5 interface with the OpenAI API and multi-threaded audio processing for a responsive, natural-language assistant.",
-    challenges:"Keeping the UI responsive while handling live audio streams and API calls concurrently.",
-    impact:"Produced a smooth, low-latency voice assistant usable for everyday desktop tasks.",
-    github:"https://github.com/helloayushhh/MiraAI"
-  },
+  tag:"AI · Full-Stack",
+  title:"CulinaryAI",
+  icon:"🍳",
+  category:["software","product"],
+  desc:"AI-powered food intelligence and chef marketplace that transforms available ingredients into personalized recipes and connects users with verified chefs.",
+  tech:["React","Firebase","JavaScript","AI Integration"],
+  problem:"People often struggle to decide what to cook with available ingredients, while home chefs have limited ways to reach potential customers.",
+  solution:"Built a multi-role AI platform where users receive personalized recipe recommendations from ingredient images and can seamlessly book verified chefs.",
+  challenges:"Designing a scalable multi-role architecture with AI workflows, secure authentication, and marketplace functionality within a hackathon timeline.",
+  impact:"Ranked Top 10 among 500+ teams at a national hackathon while delivering a production-style AI-powered marketplace.",
+  github:"https://culinaryai0.netlify.app/"
+},
+
   {
-    tag:"AI · Full-Stack", title:"CulinaryAI", icon:"🍳",
-    category:["software","product"],
-    desc:"AI-powered marketplace connecting home cooks and chefs with diners, built for a national hackathon.",
-    tech:["React","Firebase","AI Recommendations"],
-    problem:"Home chefs lacked an easy way to reach nearby customers looking for personalized meals.",
-    solution:"Built a React/Firebase marketplace with AI-assisted matching between chefs and customer preferences.",
-    challenges:"Designing a real-time matching and ordering flow within a tight hackathon timeline.",
-    impact:"Placed Top 10 out of 500+ teams at a national-level hackathon.",
-    github:"https://culinaryai0.netlify.app/"
-  },
+  tag:"Frontend · UI/UX",
+  title:"GoGym",
+  icon:"💪",
+  category:["software"],
+  desc:"Responsive fitness website designed to showcase gym services, programs, and membership information.",
+  tech:["HTML5","CSS3","JavaScript","Bootstrap"],
+  problem:"Many local gyms lack a modern, responsive website to effectively present their services and engage potential members.",
+  solution:"Designed and developed a responsive multi-section fitness website with an intuitive layout, interactive components, and mobile-friendly experience.",
+  challenges:"Creating a visually engaging, responsive interface while maintaining clean structure and smooth user experience across devices.",
+  impact:"Delivered a modern fitness website that demonstrates responsive web development, UI design, and frontend engineering skills.",
+  github:"https://github.com/helloayushhh/GoGym-Website"
+},
   {
-    tag:"Full-Stack", title:"GoGym", icon:"💪",
-    category:["software"],
-    desc:"Single-page fitness and gym-management application built with React.",
-    tech:["ReactJS","SPA Architecture"],
-    problem:"Small gyms needed a lightweight way to manage members and track workouts without heavy software.",
-    solution:"Built a fast, component-driven React SPA covering membership and workout tracking flows.",
-    challenges:"Structuring reusable components for a clean, scalable single-page architecture.",
-    impact:"Delivered a functional, responsive fitness management interface.",
-    github:"https://github.com/helloayushhh/GoGym-Website"
-  },
-  {
-    tag:"Systems · Desktop", title:"Inventory Management System", icon:"📦",
-    category:["software","analytics"],
-    desc:"Role-based desktop inventory system with a relational database backend.",
-    tech:["Java","MySQL","JDBC","RBAC","Swing"],
-    problem:"Small businesses needed inventory control with proper access restrictions by role.",
-    solution:"Built a Java Swing desktop app backed by MySQL via JDBC, with role-based access control for different user types.",
-    challenges:"Designing a clean data model that supported RBAC without overcomplicating the schema.",
-    impact:"Produced a stable, role-aware inventory system suitable for small business use.",
-    github:"https://github.com/helloayushhh/inventory-management-system"
-  }
+  tag:"Desktop · Management",
+  title:"Inventory Management System",
+  icon:"📦",
+  category:["software","analytics"],
+  desc:"Java desktop application for managing inventory, sales, purchases, customers, and suppliers through a centralized management system.",
+  tech:["Java","MySQL","JDBC","Java Swing","RBAC"],
+  problem:"Small businesses often rely on disconnected spreadsheets, making it difficult to manage inventory, sales, and stock accurately.",
+  solution:"Built a Java Swing desktop application with a MySQL backend to centralize inventory operations, sales tracking, supplier management, and role-based access control.",
+  challenges:"Designing a relational database and desktop workflow that handled inventory, transactions, and user permissions while keeping the system intuitive.",
+  impact:"Built a complete business management system demonstrating object-oriented design, database integration, transaction handling, and role-based user management.",
+  github:"https://github.com/helloayushhh/inventory-management-system"
+}
+{
+  tag:"AI · Desktop",
+  title:"Mira AI",
+  icon:"🎙️",
+  category:["software"],
+  desc:"AI-powered desktop companion with voice and chat interaction, supporting bilingual conversations through a modern desktop interface.",
+  tech:["Python","PyQt5","OpenAI API","Speech Recognition"],
+  problem:"Most desktop assistants feel robotic, rely on rigid commands, and lack a natural conversational experience.",
+  solution:"Built a Python desktop assistant with voice and chat modes, bilingual support (English & Hindi), and AI-powered conversations through an intuitive PyQt5 interface.",
+  challenges:"Integrating speech recognition, text-to-speech, and AI responses while maintaining a responsive desktop experience.",
+  impact:"Built a conversational desktop companion that combines voice, chat, and multilingual interaction into a seamless AI experience.",
+  github:"https://github.com/helloayushhh/MiraAI"
+},
 ];
 
 /* ===================== LOADER ===================== */
