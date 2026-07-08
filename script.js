@@ -142,7 +142,7 @@ const codeStr =
   role: <span class="s">"Software Engineer"</span>,
   identity: <span class="s">"Product Builder"</span>,
   focus: [<span class="s">"Software"</span>, <span class="s">"Data"</span>, <span class="s">"Product"</span>],
-  stack: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"React"</span>],
+  stack: [<span class="s">"Python"</span>, <span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"React"</span>],
   status: <span class="s">"building products that people love to use"</span>
 };
 
