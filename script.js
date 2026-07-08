@@ -26,7 +26,6 @@ const projects = [
   impact:"Ranked Top 10 among 500+ teams at a national hackathon while delivering a production-style AI-powered marketplace.",
   github:"https://culinaryai0.netlify.app/"
 },
-
   {
   tag:"Frontend · UI/UX",
   title:"GoGym",
@@ -52,7 +51,7 @@ const projects = [
   challenges:"Designing a relational database and desktop workflow that handled inventory, transactions, and user permissions while keeping the system intuitive.",
   impact:"Built a complete business management system demonstrating object-oriented design, database integration, transaction handling, and role-based user management.",
   github:"https://github.com/helloayushhh/inventory-management-system"
-}
+},
 {
   tag:"AI · Desktop",
   title:"Mira AI",
