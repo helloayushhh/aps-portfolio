@@ -12,7 +12,7 @@
 }
 @font-face{
   font-family:'SubheadingFont';
-  src: url('assets/fonts/Quizlo DEMO.otf') format('opentype');
+  src: url('assets\fonts\Quizlo DEMO.otf') format('opentype');
   font-weight: 400;
   font-display: swap;
 }
@@ -275,7 +275,7 @@ header#nav.scrolled{
  
 /* ============ STATUS CARDS ============ */
 .status-card{
-  position:fixed; top:140px; right:40px; max-width:230px; padding:18px;
+  position:fixed; top:100px; right:40px; max-width:230px; padding:12px;
   z-index:50; cursor:grab; user-select:none;
   transition:box-shadow .2s;
 }
@@ -353,7 +353,7 @@ header#nav.scrolled{
 .about-story p{color:var(--muted);margin-bottom:16px;font-size:15.5px;}
 .about-story strong{color:var(--text);}
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0;}
-.stat-box{padding:18px;text-align:left;}
+.stat-box{padding:12px;text-align:left;}
 .stat-num{font-family:var(--font-subheading);font-size:28px;font-weight:700;background:linear-gradient(120deg,var(--primary),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .stat-label{font-size:12.5px;color:var(--muted);margin-top:4px;}
  
@@ -396,7 +396,7 @@ header#nav.scrolled{
   scrollbar-width:none;
 }
 .carousel-track::-webkit-scrollbar{display:none;}
-.carousel-track::before, .carousel-track::after{content:'';flex:0 0 calc(50% - 190px);}
+.carousel-track::before, .carousel-track::after{content:'';flex:0 0 calc(50% - 160px);}
 .proj-card{
   flex:0 0 380px;scroll-snap-align:center;
   border-radius:22px;overflow:hidden;border:1px solid var(--border);
@@ -406,7 +406,7 @@ header#nav.scrolled{
 }
 .proj-card.active{transform:scale(1);filter:blur(0);opacity:1;}
 .proj-media{
-  height:190px;background:linear-gradient(135deg,var(--primary),var(--secondary), var(--cyan));
+  height:100px;background:linear-gradient(135deg,var(--primary),var(--secondary), var(--cyan));
   display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;color:#000;position:relative;overflow:hidden;
 }
 .proj-media::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.25), transparent 60%);}
