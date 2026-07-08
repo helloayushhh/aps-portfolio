@@ -271,8 +271,8 @@ setTimeout(typeCode, 1300);
 const stackGrid = document.getElementById("stackGrid");
 const stack = [
   // Languages
-  ["java","Java"],
   ["python","Python"],
+  ["java","Java"],
   ["javascript","JavaScript"],
 
   // Backend
@@ -430,95 +430,126 @@ document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal();
 /* ===================== CERTS ===================== */
 const certifications = [
   {
-    name:"Product Fundamentals Micro-Certification",
-    issuer:"Product School",
-    category:["ai","professional"],
-    logo:"🎯",
-    link:"#"
+    name:"AI & Cybersecurity Awareness",
+    issuer:"TCS iON",
+    category:["ai"],
+    logo:"https://cdn.simpleicons.org/tcs/ffffff",
+    link:"assets/certificates/AI & Cyber__tcs iON.pdf"
   },
   {
-    name:"AWS Gen AI Foundations",
-    issuer:"AWS Academy",
-    category:["ai"],
-    logo:"☁️",
-    link:"#"
-  },
+  name:"AWS Gen AI Foundations",
+  issuer:"AWS Academy",
+  category:["ai"],
+  logo:"☁️",
+  link:"assets/certificates/AWS Gen AI Foundations__AWS Academy.pdf"
+},
   {
     name:"Google Analytics Certification",
     issuer:"Google",
     category:["data"],
     logo:"https://cdn.simpleicons.org/googleanalytics/ffffff",
-    link:"#"
+    link:"assets/certificates/Google Analytics Certification__Skillshop.pdf"
   },
   {
     name:"Gemini Certified Student",
     issuer:"Google for Education",
     category:["ai"],
     logo:"https://cdn.simpleicons.org/googlegemini/ffffff",
-    link:"#"
-  },
-  {
-    name:"AI & Cybersecurity Awareness",
-    issuer:"TCS iON",
-    category:["ai","professional"],
-    logo:"https://cdn.simpleicons.org/tcs/ffffff",
-    link:"#"
+    link:"assets/certificates/Gemini Certified Student Certificate.pdf"
   },
   {
     name:"CodeSlayer Hackathon",
     issuer:"NIT Delhi",
     category:["development"],
-    logo:"🏆",
-    link:"assets/certificates/Hackathon - NIT.jpg"
+    logo:"⏳",
+    link:"assets/certificates/Hackathon - NIT Delhi CodeSlayer Certificate.pdf"
   },
   {
-    name:"Career Transformation Program",
-    issuer:"IBM SkillsBuild",
-    category:["professional"],
-    logo:"💼",
-    link:"assets/certificates/Completion Certificate_SkillsBuild.pdf"
+    name:"AI Micro-Certification",
+    issuer:"Product School",
+    category:["product","ai"],
+    logo:"🎯",
+    link:"assets/certificates/AI Micro-Certification__Product School.pdf"
   },
+  {
+  name:"Cloud Foundations",
+  issuer:"AWS Academy",
+  category:["development"],
+  logo:"☁️",
+  link:"assets/certificates/Cloud Foundations certificate__AWS Academy.pdf"
+},
+  {
+    name:"Product Experimentation Micro-Certification",
+    issuer:"Product School",
+    category:["product"],
+    logo:"🎯",
+    link:"assets/certificates/PEC Certificate__Product School.pdf"
+  },
+  {
+  name:"Career Transformation Program",
+  issuer:"IBM SkillsBuild",
+  category:["development"],
+  logo:"💼",
+  link:"assets/certificates/Completion Certificate_SkillsBuild.pdf"
+},
   {
     name:"Digital Applications Fundamentals",
     issuer:"FutureSkills Prime & NASSCOM",
-    category:["development","professional"],
+    category:["data"],
     logo:"💻",
     link:"assets/certificates/DAF certificate.pdf"
   },
   {
-    name:"Business Innovation Challenge — Winner",
-    issuer:"IEEE CSE, GCET",
-    category:["professional"],
-    logo:"🏆",
-    link:"assets/certificates/IEEE Winner.jpg"
+    name:"HackDays Hackathon",
+    issuer:"HackBase",
+    category:["development"],
+    logo:"⏳",
+    link:"assets/certificates/Hackathon - HackDays Participation Ceritificate.pdf"
+  },
+  {
+    name:"Trinity TechJam Hackathon",
+    issuer:"Trinity College",
+    category:["development"],
+    logo:"⏳",
+    link:"assets/certificates/Hackathon - Trinity TechJam Certificate.pdf"
   }
 ];
 
 const certGrid = document.getElementById("certGrid");
-function renderCerts(filter = "all"){
-  certGrid.innerHTML = "";
-  certifications
-    .filter(c => filter === "all" || c.category.includes(filter))
-    .forEach(c => {
-      const card = document.createElement("div");
-      card.className = "cert-card glass";
-      const isImg = c.logo.startsWith("http");
-      card.innerHTML = `
-        <div class="cert-logo">${isImg ? `<img src="${c.logo}" alt="${c.issuer}">` : c.logo}</div>
-        <div class="cert-name">${c.name}</div>
-        <div class="cert-issuer">${c.issuer}</div>
-        <a href="${c.link}" target="_blank" class="cert-link">View ↗</a>
-      `;
-      certGrid.appendChild(card);
-    });
+
+// Build all cards once, upfront
+certifications.forEach(c => {
+  const card = document.createElement("div");
+  card.className = "cert-card glass";
+  card.dataset.category = c.category.join(",");
+  const isImg = c.logo.startsWith("http");
+  card.innerHTML = `
+    <div class="cert-logo">${isImg ? `<img src="${c.logo}" alt="${c.issuer}">` : c.logo}</div>
+    <div class="cert-name">${c.name}</div>
+    <div class="cert-issuer">${c.issuer}</div>
+    <a href="${c.link}" target="_blank" class="cert-link">View ↗</a>
+  `;
+  certGrid.appendChild(card);
+});
+
+const certCards = Array.from(certGrid.children);
+// Lock the grid's height to its tallest state so filtering never shifts the page
+requestAnimationFrame(() => {
+  certGrid.style.minHeight = certGrid.offsetHeight + "px";
+});
+
+function filterCerts(filter){
+  certCards.forEach((card, idx) => {
+    const matches = filter === "all" || certifications[idx].category.includes(filter);
+    card.style.display = matches ? "" : "none";
+  });
 }
-renderCerts();
 
 document.querySelectorAll('#certFilters .filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('#certFilters .filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    renderCerts(btn.dataset.filter);
+    filterCerts(btn.dataset.filter);
   });
 });
 
