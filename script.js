@@ -11,7 +11,8 @@ const projects = [
   solution:"Built a Spring Boot backend that encrypts, validates, deduplicates, and settles offline UPI transactions relayed through a simulated Bluetooth mesh network.",
   challenges:"Implementing hybrid cryptography, preventing duplicate settlements under concurrent requests, and ensuring secure end-to-end transaction processing.",
   impact:"Built a production-inspired backend demonstrating offline payment routing, distributed systems concepts, and secure transaction processing.",
-  github:"https://github.com/helloayushhh/SwiftUPI"
+  link:"https://github.com/helloayushhh/SwiftUPI",
+  linkLabel:"Link"
 },
   {
   tag:"AI · Full-Stack",
@@ -24,7 +25,8 @@ const projects = [
   solution:"Built a multi-role AI platform where users receive personalized recipe recommendations from ingredient images and can seamlessly book verified chefs.",
   challenges:"Designing a scalable multi-role architecture with AI workflows, secure authentication, and marketplace functionality within a hackathon timeline.",
   impact:"Ranked Top 10 among 500+ teams at a national hackathon while delivering a production-style AI-powered marketplace.",
-  github:"https://culinaryai0.netlify.app/"
+  link:"https://culinaryai0.netlify.app/",
+  linkLabel:"Link"
 },
   {
   tag:"Frontend · UI/UX",
@@ -37,7 +39,8 @@ const projects = [
   solution:"Designed and developed a responsive multi-section fitness website with an intuitive layout, interactive components, and mobile-friendly experience.",
   challenges:"Creating a visually engaging, responsive interface while maintaining clean structure and smooth user experience across devices.",
   impact:"Delivered a modern fitness website that demonstrates responsive web development, UI design, and frontend engineering skills.",
-  github:"https://github.com/helloayushhh/GoGym-Website"
+  link:"https://go-gym-fitness.vercel.app/",
+  linkLabel:"Link"
 },
   {
   tag:"Desktop · Management",
@@ -50,20 +53,50 @@ const projects = [
   solution:"Built a Java Swing desktop application with a MySQL backend to centralize inventory operations, sales tracking, supplier management, and role-based access control.",
   challenges:"Designing a relational database and desktop workflow that handled inventory, transactions, and user permissions while keeping the system intuitive.",
   impact:"Built a complete business management system demonstrating object-oriented design, database integration, transaction handling, and role-based user management.",
-  github:"https://github.com/helloayushhh/inventory-management-system"
+  link:"https://github.com/helloayushhh/inventory-management-system",
+  linkLabel:"Link"
 },
 {
-  tag:"AI · Desktop",
-  title:"Mira AI",
-  icon:"🎙️",
-  category:["software"],
-  desc:"AI-powered desktop companion with voice and chat interaction, supporting bilingual conversations through a modern desktop interface.",
-  tech:["Python","PyQt5","OpenAI API","Speech Recognition"],
-  problem:"Most desktop assistants feel robotic, rely on rigid commands, and lack a natural conversational experience.",
-  solution:"Built a Python desktop assistant with voice and chat modes, bilingual support (English & Hindi), and AI-powered conversations through an intuitive PyQt5 interface.",
-  challenges:"Integrating speech recognition, text-to-speech, and AI responses while maintaining a responsive desktop experience.",
-  impact:"Built a conversational desktop companion that combines voice, chat, and multilingual interaction into a seamless AI experience.",
-  github:"https://github.com/helloayushhh/MiraAI"
+  tag:"Business Analysis · CRM",
+  title:"Dealership Lead Management",
+  icon:"🚗",
+  category:["product"],
+  desc:"Salesforce Automotive Cloud case study that transforms a fragmented dealership lead process into an automated, scalable CRM workflow.",
+  tech:["Salesforce Automotive Cloud","BRD","Process Flows","Wireframing","Solution Design"],
+  problem:"Manual lead assignment, inconsistent follow-ups, duplicate records, and limited reporting were reducing sales efficiency and customer experience.",
+  solution:"Designed an end-to-end Salesforce CRM solution covering requirement gathering, stakeholder analysis, process redesign, automation workflows, wireframes, and solution architecture.",
+  challenges:"Translating business requirements into scalable CRM workflows while balancing stakeholder needs, automation, and operational efficiency.",
+  impact:"Produced a complete consulting-style case study demonstrating business analysis, CRM process optimization, and Salesforce solution design.",
+  link:"https://github.com/helloayushhh/dealership-lead-management-salesforce-case-study",
+  linkLabel:"Link"
+},
+{
+  tag:"Product Design · Analytics",
+  title:"Uber Fleet Manager Dashboard",
+  icon:"🚖",
+  category:["product","analytics"],
+  desc:"Product case study designing a centralized dashboard that helps Uber fleet managers monitor operations, optimize performance, and improve decision-making.",
+  tech:["Product Strategy","Dashboard Design","User Research","Wireframing","Analytics"],
+  problem:"Fleet managers lacked a unified view of drivers, vehicles, revenue, and operational issues, resulting in slower decisions and reduced efficiency.",
+  solution:"Designed a real-time operational dashboard that combines fleet monitoring, driver performance, revenue analytics, maintenance tracking, and alerts into a single interface.",
+  challenges:"Prioritizing high-impact operational metrics while designing an information-dense dashboard that remains intuitive and actionable for daily decision-making.",
+  impact:"Created a product case study demonstrating user-centered design, operational analytics, feature prioritization, and B2B dashboard thinking.",
+  link:"https://app.notion.com/p/UBER-Fleet-Manager-Dashboard-35f31e2c4d568061a3bffae3e5ff308d?source=copy_link",
+  linkLabel:"Link"
+},
+{
+  tag:"Product Teardown · Growth",
+  title:"Meesho Reseller Onboarding",
+  icon:"🛍️",
+  category:["product","analytics"],
+  desc:"Product teardown analyzing Meesho's reseller onboarding journey to identify activation friction and improve first-order conversion.",
+  tech:["Product Strategy","UX Analysis","User Journey","Growth Metrics","Product Teardown"],
+  problem:"Many first-time resellers drop off before placing their first order due to onboarding friction, pricing confusion, and low confidence.",
+  solution:"Analyzed the end-to-end onboarding journey and proposed improvements including voice-guided onboarding, starter catalog packs, margin transparency, WhatsApp templates, and first-order support.",
+  challenges:"Balancing simplicity for first-time users while maintaining a scalable onboarding experience for millions of resellers.",
+  impact:"Delivered actionable product recommendations focused on improving activation, reducing Time-to-First-Order, and increasing reseller retention.",
+  link:"https://app.notion.com/p/Meesho-Reseller-Onboarding-Teardown-7f331e2c4d5682c48b2381a4c40f2674?source=copy_link",
+  linkLabel:"Link"
 },
 ];
 
@@ -341,10 +374,17 @@ projects.forEach((p, idx) => {
       <div class="proj-tech">${p.tech.map(t=>`<span>${t}</span>`).join("")}</div>
       <div class="proj-links">
         <div class="proj-view">View Case Study <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6V6z"/></svg></div>
-        <a href="${p.github}" target="_blank" rel="noopener" class="proj-github" onclick="event.stopPropagation()">
-          <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.2 9.3 7.8 10.8.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.4-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-          GitHub
-        </a>
+        ${p.linkLabel === "View on GitHub" ? `
+          <a href="${p.link}" target="_blank" rel="noopener" class="proj-github" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.2 9.3 7.8 10.8.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.4-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+            GitHub
+          </a>
+       ` : `
+          <a href="${p.link}" target="_blank" rel="noopener" class="proj-github" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.29 15.29l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+            ${p.linkLabel}
+          </a>
+        `}
       </div>
     </div>`;
   card.addEventListener("click", () => openModal(idx));
@@ -428,7 +468,7 @@ function openModal(idx){
     <div class="modal-section"><h5>Impact</h5><p>${p.impact}</p></div>
     <div class="modal-section"><h5>Tech Stack</h5><div class="proj-tech">${p.tech.map(t=>`<span>${t}</span>`).join("")}</div></div>
     <div class="modal-links">
-      <a href="${p.github}" target="_blank" rel="noopener" class="btn-ghost">View on GitHub</a>
+      <a href="${p.link}" target="_blank" rel="noopener" class="btn-ghost">${p.linkLabel}</a>
     </div>`;
   overlay.classList.add("open");
 }
