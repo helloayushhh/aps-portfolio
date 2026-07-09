@@ -11,8 +11,7 @@ const projects = [
   solution:"Built a Spring Boot backend that encrypts, validates, deduplicates, and settles offline UPI transactions relayed through a simulated Bluetooth mesh network.",
   challenges:"Implementing hybrid cryptography, preventing duplicate settlements under concurrent requests, and ensuring secure end-to-end transaction processing.",
   impact:"Built a production-inspired backend demonstrating offline payment routing, distributed systems concepts, and secure transaction processing.",
-  link:"https://github.com/helloayushhh/SwiftUPI",
-  linkLabel:"Link"
+  github:"https://github.com/helloayushhh/SwiftUPI"
 },
   {
   tag:"AI · Full-Stack",
@@ -53,8 +52,7 @@ const projects = [
   solution:"Built a Java Swing desktop application with a MySQL backend to centralize inventory operations, sales tracking, supplier management, and role-based access control.",
   challenges:"Designing a relational database and desktop workflow that handled inventory, transactions, and user permissions while keeping the system intuitive.",
   impact:"Built a complete business management system demonstrating object-oriented design, database integration, transaction handling, and role-based user management.",
-  link:"https://github.com/helloayushhh/inventory-management-system",
-  linkLabel:"Link"
+  github:"https://github.com/helloayushhh/inventory-management-system"
 },
 {
   tag:"Business Analysis · CRM",
@@ -67,8 +65,7 @@ const projects = [
   solution:"Designed an end-to-end Salesforce CRM solution covering requirement gathering, stakeholder analysis, process redesign, automation workflows, wireframes, and solution architecture.",
   challenges:"Translating business requirements into scalable CRM workflows while balancing stakeholder needs, automation, and operational efficiency.",
   impact:"Produced a complete consulting-style case study demonstrating business analysis, CRM process optimization, and Salesforce solution design.",
-  link:"https://github.com/helloayushhh/dealership-lead-management-salesforce-case-study",
-  linkLabel:"Link"
+  github:"https://github.com/helloayushhh/dealership-lead-management-salesforce-case-study"
 },
 {
   tag:"Product Design · Analytics",
@@ -374,17 +371,17 @@ projects.forEach((p, idx) => {
       <div class="proj-tech">${p.tech.map(t=>`<span>${t}</span>`).join("")}</div>
       <div class="proj-links">
         <div class="proj-view">View Case Study <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6V6z"/></svg></div>
-        ${p.linkLabel === "View on GitHub" ? `
-          <a href="${p.link}" target="_blank" rel="noopener" class="proj-github" onclick="event.stopPropagation()">
+        ${p.github ? `
+          <a href="${p.github}" target="_blank" rel="noopener" class="proj-github" onclick="event.stopPropagation()">
             <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.2 9.3 7.8 10.8.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.4-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
             GitHub
           </a>
-       ` : `
+        ` : p.link ? `
           <a href="${p.link}" target="_blank" rel="noopener" class="proj-github" onclick="event.stopPropagation()">
             <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.29 15.29l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
-            ${p.linkLabel}
+            ${p.linkLabel || "View Project"}
           </a>
-        `}
+        ` : ''}
       </div>
     </div>`;
   card.addEventListener("click", () => openModal(idx));
@@ -468,7 +465,8 @@ function openModal(idx){
     <div class="modal-section"><h5>Impact</h5><p>${p.impact}</p></div>
     <div class="modal-section"><h5>Tech Stack</h5><div class="proj-tech">${p.tech.map(t=>`<span>${t}</span>`).join("")}</div></div>
     <div class="modal-links">
-      <a href="${p.link}" target="_blank" rel="noopener" class="btn-ghost">${p.linkLabel}</a>
+      ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener" class="btn-ghost">View on GitHub</a>` : ''}
+      ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" class="btn-ghost">${p.linkLabel || "View Project"}</a>` : ''}
     </div>`;
   overlay.classList.add("open");
 }
