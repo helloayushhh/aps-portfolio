@@ -248,14 +248,14 @@ header#nav.scrolled{
 
 /* TERMINAL SIGNATURE */
 .terminal{
-  max-width:360px;
+  max-width:350px;
   margin-left:auto;
   border-radius:14px;overflow:hidden;border:1px solid var(--border);
   background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
   box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.02);
   animation:termFloat 6s ease-in-out infinite;
 }
-.terminal-body{padding:15px 17px;font-family:var(--font-mono);font-size:12px;line-height:1.7;min-height:220px;color:#d5d5d5;}
+.terminal-body{padding:16px 18px;font-family:var(--font-mono);font-size:12px;line-height:1.7;min-height:220px;color:#d5d5d5;}
 
 @keyframes termFloat{
   0%,100%{transform:translateY(140px);}
