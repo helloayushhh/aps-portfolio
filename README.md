@@ -1,22 +1,46 @@
-My Portfolio
+# aps portfolio
 
-Built with HTML, CSS, and JavaScript.
+a small corner of the internet where i build and share.
 
-A small corner of the internet where I share my work, experiments, and the journey of becoming a better software engineer.
+this portfolio brings together the projects i've built, the things i'm learning and a little about who i am as a developer.
 
-## What's in here
-- `index.html` — structure and content
-- `style.css` — all styling
-- `script.js` — animations, project carousel, contact form
-- `assets/` — images, fonts, resume, certificates
+---
 
-## Running it locally
-Open `index.html` with a local server (like VS Code's Live Server extension) rather than double-clicking it — some things like custom fonts and the contact form need a real server to work.
+## why i built this
 
-## Live site
-[https://helloayush.vercel.app/]
+i wanted a place that felt more personal than a resume.
 
-## Contact
-ayushpandeysurya@gmail.com
+instead of just listing projects, i wanted to tell the story behind them and keep improving the site as i grow.
 
-Thanks for visiting.
+---
+
+## what's inside
+
+- projects i've built
+- skills and technologies
+- experience
+- certifications
+- contact information
+
+---
+
+## built with
+
+- html
+- css
+- javascript
+
+---
+
+## what's next
+
+- more project case studies
+- smoother interactions
+- better accessibility
+- continuous improvements
+
+---
+
+see you in the next build.
+
+— aps
